@@ -1,10 +1,9 @@
-// src/pages/Login.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
-// Imagens (essas já funcionaram pra você quando ficaram em src/assets)
+// Imagens
 const hero = new URL('../assets/left-hero.jpg', import.meta.url).href;
 const logo = new URL('../assets/logo-doc.png', import.meta.url).href;
 
@@ -16,7 +15,12 @@ export default function Login() {
     <div className="grid md:grid-cols-2 min-h-screen">
       {/* ESQUERDA: foto + overlay + texto */}
       <div className="relative hidden md:block min-h-screen">
-        <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        {/* ⬇️ ALTERAÇÃO AQUI: adicionamos object-[40%_center] */}
+        <img
+          src={hero}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-[40%_center]"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-royal/65 via-royal/15 to-transparent" />
         <div className="absolute bottom-8 left-8 right-8 text-ivory drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]">
           <h1 className="text-3xl font-semibold">Gestão Documental</h1>
@@ -24,9 +28,8 @@ export default function Login() {
         </div>
       </div>
 
-      {/* DIREITA: gradiente GARANTIDO via camada absoluta de fundo */}
+      {/* DIREITA: gradiente + login */}
       <div className="relative flex items-center justify-center p-8">
-        {/* camada de fundo com gradiente (fica atrás do form) */}
         <div
           className="absolute inset-0 -z-10"
           style={{

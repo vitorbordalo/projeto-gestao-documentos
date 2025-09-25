@@ -16,7 +16,7 @@ export default function Topbar(){
         <h1 className="text-lg font-semibold text-slateink">Painel</h1>
 
         <div className="flex items-center gap-3">
-          <div className="text-sm text-slateink/70">v0.1 • Old-Money UI</div>
+          <div className="text-sm text-slateink/70">v1.0</div>
           <Button onClick={logout} className="btn-ghost">Sair</Button>
         </div>
       </div>
