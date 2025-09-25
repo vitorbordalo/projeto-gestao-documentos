@@ -1,0 +1,1 @@
+export const colors = { royal: '#0B3D91', navy: '#081C3A', ivory: '#F7F5EE', gold: '#C6A961' };

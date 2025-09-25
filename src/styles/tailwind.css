@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tema old-money */
+.body-oldmoney { @apply bg-ivory text-slateink; }
+.card { @apply bg-white border border-[#E4E1D1] rounded-2xl shadow-sm; }
+.btn { @apply inline-flex items-center justify-center px-4 py-2 rounded-xl font-medium transition; }
+.btn-primary { @apply btn bg-royal text-white hover:opacity-90; }
+.btn-ghost { @apply btn bg-transparent border border-royal text-royal hover:bg-royal/5; }
+.input { @apply w-full rounded-xl border border-[#D9D6C8] bg-ivory px-3 py-2 focus:outline-none focus:ring-2 focus:ring-royal/30; }
+.label { @apply text-sm text-slateink/70; }
