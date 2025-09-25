@@ -10,7 +10,7 @@ export default function LineUploadSize({ data }) {
           <XAxis dataKey="mes" tickLine={false} axisLine={false} />
           <YAxis tickLine={false} axisLine={false} unit=" MB" />
           <Tooltip />
-          <Line type="monotone" dataKey="mediaMB" stroke="#0B3D91" strokeWidth={2} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="mediaMB" stroke="#081C3A" strokeWidth={2} dot={{ r: 3 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

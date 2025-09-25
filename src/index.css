@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==== BASE / TOKENS ==== */
+@layer base {
+  :root {
+    --ivory: #F7F5EE;
+    --royal: #0B3D91;          /* azul royal */
+    --royal-hover: #0A357F;    /* hover do botão (um tom abaixo, sem /90) */
+    --ink: #111827;            /* texto principal */
+    --ink-70: rgba(17,24,39,.7);
+    --line: #E4E1D1;           /* borda suave old-money */
+  }
+
+  html, body {
+    @apply bg-[var(--ivory)] text-[var(--ink)];
+  }
+
+  /* Tipografia padrão */
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+}
+
+/* ==== COMPONENTES REUTILIZÁVEIS ==== */
+@layer components {
+  /* Card translúcido com borda fina (old-money) */
+  .card {
+    @apply rounded-2xl border shadow-sm;
+    border-color: var(--line);
+    background-color: rgba(255,255,255,.6);
+    backdrop-filter: blur(6px);
+  }
+
+  .label {
+    @apply block text-sm mb-1;
+    color: var(--ink-70);
+  }
+
+  /* INPUT – (sem arbitrary class no @apply) */
+  .input {
+    @apply w-full rounded-xl border px-3 py-2 transition placeholder-black/30;
+    border-color: var(--line);
+    background-color: rgba(255,255,255,.7);
+    backdrop-filter: blur(4px);
+  }
+  .input:focus {
+    outline: none;
+    border-color: var(--royal);
+    /* “ring” manual (compatível com Tailwind) */
+    box-shadow: 0 0 0 4px rgba(11,61,145,.25);
+    background-color: rgba(255,255,255,.92);
+  }
+
+  /* BOTÕES – sem hover:bg-[var(--...)] no @apply */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium text-white transition;
+    background-color: var(--royal);
+  }
+  .btn:hover { background-color: var(--royal-hover); }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl px-3 py-2 font-medium transition;
+    color: var(--ink);
+  }
+  .btn-ghost:hover { background: rgba(0,0,0,.05); }
+}

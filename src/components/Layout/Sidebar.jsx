@@ -1,34 +1,35 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import clsx from 'clsx';
+import { NavLink } from 'react-router-dom';
 
-const Item = ({ to, children }) => {
-  const { pathname } = useLocation();
-  const active = pathname === to;
-  return (
-    <Link
-      to={to}
-      className={clsx(
-        'flex items-center gap-3 px-4 py-3 rounded-xl',
-        active ? 'bg-royal text-white' : 'text-slateink hover:bg-royal/10'
-      )}
-    >
-      {children}
-    </Link>
-  );
-};
+const logo = new URL('../../assets/logo-doc.png', import.meta.url).href;
 
 export default function Sidebar(){
   return (
-    <aside className="w-64 min-h-screen bg-ivory border-r border-[#E4E1D1] p-4">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-9 h-9 rounded-xl bg-royal"></div>
-        <div className="font-semibold text-slateink">Gestão Documental</div>
+    <aside className="w-64 bg-[var(--ivory)] border-r border-[var(--line)] min-h-screen p-6 flex flex-col">
+      <div className="flex items-center gap-3 mb-8">
+        <img src={logo} alt="Logo" className="w-10 h-10 rounded-xl object-contain" />
+        <span className="font-semibold text-[var(--ink)]">Gestão Documental</span>
       </div>
-      <nav className="space-y-2">
-        <Item to="/dashboard">Dashboard</Item>
-        <Item to="/documentos">Documentos</Item>
-        <Item to="/upload">Upload</Item>
+
+      <nav className="flex flex-col gap-2">
+        {[
+          { to: '/dashboard', label: 'Dashboard' },
+          { to: '/documentos', label: 'Documentos' },
+          { to: '/upload', label: 'Upload' },
+        ].map(item => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              `px-4 py-2 rounded-xl font-medium transition
+               ${isActive
+                 ? 'bg-[var(--royal)] text-white'
+                 : 'text-[var(--ink)] hover:bg-black/5'}`
+            }
+          >
+            {item.label}
+          </NavLink>
+        ))}
       </nav>
     </aside>
   );

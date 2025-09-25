@@ -10,7 +10,7 @@ export default function BarMonthlyDocs({ data }) {
           <XAxis dataKey="mes" tickLine={false} axisLine={false} />
           <YAxis tickLine={false} axisLine={false} />
           <Tooltip />
-          <Bar dataKey="envios" radius={[8,8,0,0]} />
+          <Bar dataKey="envios" radius={[10,10,0,0]} fill="#0B3D91" />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -4,20 +4,22 @@ import Button from '../UI/Button';
 
 export default function Topbar(){
   const nav = useNavigate();
-
-  const logout = () => {
-    // aqui no futuro você pode limpar tokens, etc
-    nav('/');
-  };
+  const logout = () => nav('/');
 
   return (
-    <header className="sticky top-0 z-10 bg-ivory/80 backdrop-blur border-b border-[#E4E1D1]">
+    <header className="sticky top-0 z-10 bg-[var(--ivory)]/70 backdrop-blur border-b border-[var(--line)]">
       <div className="max-w-screen-2xl mx-auto px-6 py-3 flex items-center justify-between">
-        <h1 className="text-lg font-semibold text-slateink">Painel</h1>
-
-        <div className="flex items-center gap-3">
-          <div className="text-sm text-slateink/70">v1.0</div>
-          <Button onClick={logout} className="btn-ghost">Sair</Button>
+        <div className="text-sm text-[var(--ink)]/60">Painel</div>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-[var(--ink)]/50">v1.0 (Versão Teste)</span>
+          <Button
+          onClick={() => nav('/')}
+          className="bg-white text-[var(--royal)] border border-[var(--royal)] 
+             hover:bg-[var(--royal)] hover:text-white 
+             transition px-4 py-2 rounded-xl font-medium"
+>
+             Sair
+            </Button>
         </div>
       </div>
     </header>
